@@ -1,0 +1,67 @@
+\section{Requirements}
+\subsection{Must-Have Features}
+\begin{frame}
+  \frametitle{3.1 Must-Have Features (Core Models)}
+
+        \textbf{Activity Classification Model:} Classify (boning, slicing, cutting, idle) from 1-min sensor data.
+
+        \textbf{Knife Sharpness Model:} Classify condition (Sharp, Medium, Blunt).
+
+        \textbf{Data Pipeline:} Robust feature extraction from raw sensor data.
+
+        \textbf{Ensemble System:} Combined output for both activity and sharpness.
+
+    
+
+\end{frame}
+
+\begin{frame}{Ensemble system}
+    Random forest will be chosen first due to its high accuracy seen on Portfolio 3.
+    \begin{block}{Ensemble learning}
+        \includegraphics[width=\textwidth]{ensemble learning.png}
+    \end{block}
+\end{frame}
+
+\subsection{Optional Features}
+\begin{frame}
+  \frametitle{3.2 Optional Features (Stretch Goals)}
+  \begin{itemize}
+    \item \textbf{Advanced UI Dashboard:}
+    \begin{itemize}
+        \item Industrial-grade GUI (Python `tk` module).
+        \item Role-based access (Worker vs. Supervisor).
+        \item Worker "clock-in" and activity logging.
+        \item Supervisor reports on worker performance.
+    \end{itemize}
+    \item \textbf{Real-Time Capability:} Detect activity/sharpness from live sensor streams.
+    \item \textbf{Visualization Tools:}
+    \begin{itemize}
+        \item Graphs of sensor data (e.g., acceleration over time).
+        \item Real-time "stick man" visualization of worker.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\subsection{Deployment Plan}
+\begin{frame}
+  \frametitle{3.3 Deployment Plan}
+
+    \begin{block}{Weeks 7-9: CSV-fed input (real-time sensor simulation)}
+    \begin{itemize}
+        \item Follows producer-consumer architectural pattern.
+        \item \textbf{Producer:} Read and serialize the data from dataset's \emph{eval} set.
+        \item \textbf{Consumer:} Receives the serialized data and fed into the ensemble model.
+        \item Predictions are expected to be in real-time.
+    \end{itemize}
+    \end{block}
+
+    \begin{block}{Weeks 10-12: Migrates to sensor-read data}
+    \begin{itemize}
+        \item Overall architecture is kept \textit{unscathed}.
+        \item I2C-based accelerometers will be connected and read by a Raspberry Pi (due to its support of multiple I2C ports on the board).
+        \item Acceleration (xyz) values shall be transferred in terms of PWM (or angle). Accelerometer values may be in 12-bit (4096) resolution.
+    \end{itemize}
+    \end{block}
+    
+
+\end{frame}

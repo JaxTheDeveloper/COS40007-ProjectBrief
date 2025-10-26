@@ -1,0 +1,42 @@
+\section{Data}
+
+\subsection{Data Source (Assumed)}
+\begin{frame}
+  \frametitle{2.1 Data Source (Assumed)}
+    \begin{block}{Notes}
+        Assuming from the time of writing that the data is not yet available, we assume the data is taken from xyz values from 17 sensors. There should be two target features: activity and sharpness.
+    \end{block}
+    
+  
+  \begin{alertblock}{Data source}
+  
+    \textbf{Source:} Assuming data from 17 sensors, providing XYZ values.
+    \textbf{Target Features (Labels):}
+    \begin{itemize}
+        \item \textbf{Activity:} boning, slicing, cutting, idle
+        \item \textbf{Sharpness:} sharp, medium, blunt
+    \end{itemize}
+   
+  \end{alertblock}
+\end{frame}
+
+\subsection{Data Processing}
+\begin{frame}
+  \frametitle{2.2 Data Processing}
+  \begin{block}{Note}
+      Data preprocessing and feature engineering will be required.
+  \end{block}
+    \begin{block}{Note}
+        \textbf{Raw accelerometer values (XYZ) may not be expressive enough.}
+        \newline
+        Accelerometer data is recorded per-second basis. We expect to lose some granularity in processing and visualizing the worker's actions.
+    \end{block}
+    \begin{block}{ }
+        \textbf{Planned Feature Engineering:}
+        \begin{itemize}
+            \item Calculate roll, pitch, and yaw.
+            \item May require different feature sets for the two target variables (activity vs. sharpness).
+    \end{itemize}
+    \end{block}
+    
+\end{frame}
